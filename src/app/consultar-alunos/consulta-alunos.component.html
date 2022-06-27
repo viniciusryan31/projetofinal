@@ -1,0 +1,49 @@
+<form>
+<h2>
+<img
+src="https://pt.seaicons.com/wp-content/uploads/2016/99/user-group-icon.png"
+width="50px"
+/>
+Localizar alunos: 
+</h2>
+<br / >< br />
+<label> Matricula do aluno: </label>
+<input type="text" #aluno />
+‹br /><br />
+<button (click)= "procurarEstudante(aluno.value)"Pesquisar</button>
+</form>
+<div *ngFor= "let aluno of alunos">
+<table class = "table">
+<thead>
+<tr>
+<th scope="col">#</th>
+<th scope="col">Nome</th>
+<th scope="col">Corso</th›
+<th scope="col">Matricula</th>
+<th scope="col">Media</th›
+</tr>
+</thead>
+‹tbody>
+‹tr>
+<img
+src="https://pt.seaicons.com/wp-content/uploads/2016/09/user-group-icon.png"
+width="50px"
+/>
+<th scope="row">1</th>
+<td>{{ aluno.nome }}</td>
+<td>{{ aluno curso }}</td>
+<td>{{ aluno matricula }}</td>
+<td>
+{{
+(aluno.notas {0} +
+aluno.notas {1} +
+aluno.notas {2} +
+aluno.notas {3}) / 4
+}}
+</td>
+</tr>
+</tbody>
+</table>
+<div id = "result"></div>
+</div>
+

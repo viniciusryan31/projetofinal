@@ -1,0 +1,122 @@
+<form>
+<h2>
+  <img
+    src="https://pt.seaicons.com/wp-content/uploads/2016/09/user-group-icon.png"
+    width="50px"
+  />* Cadastrar alunos:
+</h2>
+
+<div>
+  <label class="form-label"> Nome:</label>
+  <br />
+  <input
+    class="form-control"
+    name="nome"
+    type="string"
+    #m1="ngModel"
+    [(ngModel)]="nome"
+    required
+    nome
+    maxlength="100"
+  />
+  <br /><br />
+</div>
+
+<div class="msg" *ngIf="m1.invalid && m1.dirty">
+  <p>Nome é obrigatório.</p>
+</div>
+
+<div>
+  <label for="phonenum">Matrícula (14 algarismos) :</label><br />
+  <input
+    id="phonenum"
+    type="matri"
+    required
+    #m2="ngModel"
+    [(ngModel)]="matricula"
+    name="matricula"
+    minlength="14"
+  />
+  <br /><br />
+</div>
+
+<div class="msg" *ngIf="m2.invalid && m2.dirty">
+  <p>Matrícula é obrigatório.</p>
+</div>
+
+<div>
+  <label class="form-label">Curso: </label>
+  <br />
+  <input
+    class="form-control"
+    name="curso"
+    type="text"
+    #cr="ngModel"
+    [(ngModel)]="curso"
+    required
+  />
+  <br /><br />
+</div>
+
+<div class="msg" *ngIf="cr.invalid && cr.dirty">
+  <p>Curso é obrigatório!</p>
+</div>
+
+<div>
+  <label class="form-label">Notas: </label>
+  <br />
+  <input
+    class="form-control mb-1"
+    name="nota1"
+    type="number"
+    #n1="ngModel"
+    [(ngModel)]="nota1"
+    required
+  />
+
+  <input
+    class="form-control mb-1"
+    name="nota2"
+    type="number"
+    #n2="ngModel"
+    [(ngModel)]="nota2"
+    required
+  />
+  <input
+    class="form-control mb-1"
+    name="nota3"
+    type="number"
+    #n3="ngModel"
+    [(ngModel)]="nota3"
+    required
+  />
+  <input
+    class="form-control mb-1"
+    name="nota4"
+    type="number"
+    #n4="ngModel"
+    [(ngModel)]="nota4"
+    required
+  />
+  <br /><br />
+</div>
+
+<ul>
+  <li *ngFor="let aluno of alunos">
+    <p>Aluno cadastrado na turma com sucesso!</p>
+    Nome: {{ aluno.nome }} <br />
+    Matricula: {{ aluno.matricula }} <br />
+    Curso: {{ aluno.curso }} <br />
+    Notas: {{ aluno.notas }}
+    <br />
+  </li>
+</ul>
+
+<button
+  (click)="
+    cadastrar(nome, matricula, curso, n1.value, n2.value, n3.value, n4.value)
+  "
+>
+  Cadastrar
+</button>
+</form>
